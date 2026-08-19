@@ -76,7 +76,7 @@ export default function Task({ setPage }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        }
+        },
       );
       const data = await response.json();
       if (response.ok) {
@@ -95,7 +95,7 @@ export default function Task({ setPage }) {
     try {
       const response = await fetch(
         `http://localhost:5000/api/tasks/${taskId}`,
-        { method: "DELETE" }
+        { method: "DELETE" },
       );
       if (response.ok) {
         await getAllTasks();
@@ -138,7 +138,9 @@ export default function Task({ setPage }) {
         {editingTaskId ? (
           <button type="submit">Update</button>
         ) : (
-          <button type="submit">Add Task</button>
+          <button type="submit" className="bg-blue-400 px-3 py-2">
+            Add Task
+          </button>
         )}
         {editingTaskId && (
           <button
